@@ -283,7 +283,7 @@ const requestAnimationFrame =
           window.webkitRequestAnimationFrame ||
           window.mozRequestAnimationFrame ||
           rafPolyfill
-        : global.requestAnimationFrame || rafPolyfill;
+        : globalThis.requestAnimationFrame || rafPolyfill;
 
 const cancelAnimationFrame =
     typeof window !== "undefined"
@@ -291,7 +291,7 @@ const cancelAnimationFrame =
           window.webkitCancelAnimationFrame ||
           window.mozCancelAnimationFrame ||
           cafPolyfill
-        : global.cancelAnimationFrame || cafPolyfill;
+        : globalThis.cancelAnimationFrame || cafPolyfill;
 
 const warn = msg => {
     return console && typeof console.warn === "function" && console.warn(msg);
